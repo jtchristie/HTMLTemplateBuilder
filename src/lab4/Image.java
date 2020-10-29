@@ -17,6 +17,7 @@ public class Image extends HTML {
 
     public String getHTML() {
         return "<img src= " + img + "\" >";
+
     }
 
 }

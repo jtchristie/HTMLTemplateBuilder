@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Clipboard;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Table extends HTML {
     private int rows;
@@ -27,7 +29,7 @@ public class Table extends HTML {
         return columns;
     }
 
-    public String getHTML(){
+    public String getHTML() throws IOException {
         StringBuilder msg = new StringBuilder();
         msg.append("<html>\n" +
                 "<head>\n" +
@@ -64,7 +66,7 @@ public class Table extends HTML {
 
         for (int i = 1;i <= columns; i++){
 
-            msg.append("<!-- column: ").append(i).append(" -->\n");
+            msg.append("<!-- row: ").append(i).append(" -->\n");
             for (int j = 1; j <= rows; j++){
                 msg.append("    <tr>\n");
                 msg.append("      <td> Add data </td>\n".repeat(Math.max(0, columns)));
@@ -75,12 +77,11 @@ public class Table extends HTML {
         msg.append("</table>\n");
         msg.append("</body>\n");
         msg.append("</html>");
-
-        StringSelection stringSelection = new StringSelection(msg.toString());
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(stringSelection, null);
+        String htmlString = msg.toString();
+        Save.save(htmlString);
         msg.append("\n\n All of the above code has been \n " +
                 "copied to your clipboard. Just paste it into your editor :)");
+
         return msg.toString();
     }
 }

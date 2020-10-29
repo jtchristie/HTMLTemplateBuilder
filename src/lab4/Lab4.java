@@ -7,6 +7,8 @@
 package lab4;
 
 import javax.swing.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 public class Lab4 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String opt = "";
 
         while (!opt.equals("Quit")){
