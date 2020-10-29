@@ -14,8 +14,6 @@ public class Save {
                 BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
                 bw.write(html);
                 bw.close();
-        } else {
-            // no option
         }
         StringSelection stringSelection = new StringSelection(html);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();

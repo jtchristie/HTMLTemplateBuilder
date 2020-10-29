@@ -1,5 +1,7 @@
 package lab4;
 
+import java.io.IOException;
+
 public class Link extends HTML {
     private String link;
     private String desc;
@@ -20,7 +22,9 @@ public class Link extends HTML {
         return desc;
     }
 
-    public String getHTML(){
-        return "<a href= " + link +"\" > " + desc + "</a>";
+    public String getHTML() throws IOException {
+        String linkHtml = "<a href= " + link +"\" > " + desc + "</a>";
+        Save.save(linkHtml);
+        return linkHtml;
     }
 }

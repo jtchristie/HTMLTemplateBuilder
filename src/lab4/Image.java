@@ -1,5 +1,7 @@
 package lab4;
 
+import java.io.IOException;
+
 public class Image extends HTML {
     private String img;
 
@@ -15,8 +17,10 @@ public class Image extends HTML {
         return img;
     }
 
-    public String getHTML() {
-        return "<img src= " + img + "\" >";
+    public String getHTML() throws IOException {
+        String imgString = "<img src= " + img + "\" >";
+        Save.save(imgString);
+        return imgString;
 
     }
 
