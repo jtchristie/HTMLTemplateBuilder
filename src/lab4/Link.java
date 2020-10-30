@@ -23,7 +23,7 @@ public class Link extends HTML {
     }
 
     public String getHTML() throws IOException {
-        String linkHtml = "<a href= " + link +"\" > " + desc + "</a>";
+        String linkHtml = "<a href= \"" + link +"\" > " + desc + "</a>";
         Save.save(linkHtml);
         return linkHtml;
     }

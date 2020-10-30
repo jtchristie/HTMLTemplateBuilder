@@ -1,9 +1,5 @@
 package lab4;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.datatransfer.StringSelection;
-import java.awt.datatransfer.Clipboard;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Table extends HTML {
@@ -60,27 +56,22 @@ public class Table extends HTML {
             String columnName = JOptionPane.showInputDialog("Enter column " + i + " name");
             msg.append("        <th> " ).append(columnName).append(" </th>\n");
         }
-        JOptionPane.showMessageDialog(null, "All of the following code will be copied automatically to your clipboard"
-               );
+
         msg.append("    <tr>\n");
 
-        for (int i = 1;i <= columns; i++){
-
-            msg.append("<!-- row: ").append(i).append(" -->\n");
             for (int j = 1; j <= rows; j++){
+                msg.append("<!-- row: ").append(j).append(" -->\n");
                 msg.append("    <tr>\n");
                 msg.append("      <td> Add data </td>\n".repeat(Math.max(0, columns)));
                 msg.append("    </tr>\n");
             }
 
-        }
+
         msg.append("</table>\n");
         msg.append("</body>\n");
         msg.append("</html>");
         String htmlString = msg.toString();
         Save.save(htmlString);
-        msg.append("\n\n All of the above code has been \n " +
-                "copied to your clipboard. Just paste it into your editor :)");
 
         return msg.toString();
     }

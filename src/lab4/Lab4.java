@@ -62,8 +62,10 @@ public class Lab4 {
 
             if (opt.equals("Create Image")){
                 String imageInput = JOptionPane.showInputDialog("Enter image link");
+                String altInput = JOptionPane.showInputDialog("Enter the alt text (This is a description of your image that web crawlers and screen readers will see) ");
                 Image myImage = new Image();
                 myImage.setImg(imageInput);
+                myImage.setAlt(altInput);
                 showMessageDialog(null, "HTML Output \n " + myImage.getHTML());
 
             }
