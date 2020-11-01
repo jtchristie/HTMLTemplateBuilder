@@ -59,10 +59,13 @@ public class Table extends HTML {
 
         msg.append("    <tr>\n");
 
-            for (int j = 1; j <= rows; j++){
-                msg.append("<!-- row: ").append(j).append(" -->\n");
+            for (int i = 1; i <= rows; i++){
+                msg.append("<!-- row: ").append(i).append(" -->\n");
                 msg.append("    <tr>\n");
-                msg.append("      <td> Add data </td>\n".repeat(Math.max(0, columns)));
+
+                for (int j = 1; j <= columns; j++){
+                    msg.append("      <td> Add data </td>\n");
+                }
                 msg.append("    </tr>\n");
             }
 
